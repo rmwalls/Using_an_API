@@ -11,7 +11,8 @@ $(document).ready(function() {
     //var b = $("<button>");
     //$(b).addClass("topicButtons");
     //$(b).adddataTopic(newTopic);
-    var newButton = $("<button class = 'topicButtons' dataTopic='newTopic'>'newTopic'");
+    var newButton = $("<button class = 'topicButtons' id=" + newTopic + ">" + newTopic + "</button>");
+    //newButton.attr = $("id=" + newTopic);  
     $("#buttons-view").append(newButton);
   });
 
@@ -19,7 +20,7 @@ $(document).ready(function() {
   // Adding click event listen listener to buttons
   $(".topicButtons").on("click", function() {
   // Grabbing and storing the data-topic property value from the button
-  var topic = $(this).attr("dataTopic");
+   var topic = $(this).attr("id");
   console.log("line 22 topic " + topic); //working
 
 
