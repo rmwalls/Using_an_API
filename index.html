@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Link to the jQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Link to Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- favicon -->
@@ -14,11 +15,33 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     
-    <!--CSS-->
+    <!--CSS
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>Gggrrrrate! Grahpics!</title>
+    <title>Gggrrrrate! Grahpics!</title> -->
 </head>
 <body>
+        <button data-topic="aurora borealis">Aurora Borealis</button>
+        <button data-topic="daffy duck">Daffy Duck</button>
+        <button data-topic="seinfeld">Seinfeld</button>
+        <button data-topic="lost">Lost</button>
+        <button data-topic="baby animals">Baby Animals</button>
+    <div class="container"></div>
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-view"></div>
+
+        <form id="giphy-form">
+            <label for="topic-input">Add a Topic</label>
+            <input type="text" id="topic-input">
+        
+            <!-- Button triggers new topic to be added -->
+            <input id="add-topic" type="submit" value="Add it">
+        </form>
+
+        <!-- Topics images will Get Dumped Here-->
+        <div id="gifs-go-here"></div>
+
+
+    </div> <!--end container-->
     <script type="text/javascript" src="assets/javascript/app.js"></script>    
 </body>
 </html>
