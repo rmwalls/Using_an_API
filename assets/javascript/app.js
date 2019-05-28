@@ -1,11 +1,27 @@
 $(document).ready(function() {
     
-  //var data-topic = ["aurora borealis", "daffy duck", "seinfeld", "lost", "baby animals"];
+  //var topics = ["aurora borealis", "daffy duck", "seinfeld", "lost", "baby animals"];
+   // This listener handles event to add a topicbutton when Add it button clicked
+   $("#add-topic").on("click", function(event) {
+    event.preventDefault(); //prevent the button from executing
+   var newTopic = $("#topic-input").val().trim().toLowerCase(); // Grab the input from the textbox
+    console.log("got the newTopic " + newTopic);
+    //need to append a new button to the screen
+    // this IS appending a button, but not assigning the topic correctly
+    //var b = $("<button>");
+    //$(b).addClass("topicButtons");
+    //$(b).adddataTopic(newTopic);
+    var newButton = $("<button class = 'topicButtons' dataTopic='newTopic'>'newTopic'");
+    $("#buttons-view").append(newButton);
+  });
 
-  // Adding click event listen listener to all buttons
-  $("button").on("click", function() {
+
+  // Adding click event listen listener to buttons
+  $(".topicButtons").on("click", function() {
   // Grabbing and storing the data-topic property value from the button
-  var topic = $(this).attr("data-topic");
+  var topic = $(this).attr("dataTopic");
+  console.log("line 22 topic " + topic); //working
+
 
   // Constructing a queryURL using the topic name
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=qt7hfQSsEX423SLcRsTU9j0P32dk7E38&limit=10";
@@ -17,13 +33,14 @@ $(document).ready(function() {
   })
   // After data comes back from the request
   .then(function(response) {
-    console.log("queryURL " + queryURL);
+    console.log("queryURL being sent " + queryURL); //working
 
-    console.log(response);
+    console.log(response); //working
   // storing the data from the AJAX request in the results variable
   var results = response.data;
+  console.log("results variable has " + results); //working
 
-  // Looping through each result item
+  // Looping through each of the 10 result items
   for (var i = 0; i < results.length; i++) {
     // Creating and storing a div tag
     var topicDiv = $("<div>");
@@ -39,6 +56,8 @@ $(document).ready(function() {
     // Prependng the topicDiv to the HTML page in the "#gifs-appear-here" div
     $("#gifs-go-here").prepend(topicDiv);
   } //end for loop
+
+
   });
   });
 

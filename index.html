@@ -20,26 +20,36 @@
     <title>Gggrrrrate! Grahpics!</title> -->
 </head>
 <body>
-        <button data-topic="aurora borealis">Aurora Borealis</button>
-        <button data-topic="daffy duck">Daffy Duck</button>
-        <button data-topic="seinfeld">Seinfeld</button>
-        <button data-topic="lost">Lost</button>
-        <button data-topic="baby animals">Baby Animals</button>
-    <div class="container"></div>
-        <!-- Rendered Buttons will get Dumped Here  -->
-        <div id="buttons-view"></div>
-
-        <form id="giphy-form">
-            <label for="topic-input">Add a Topic</label>
-            <input type="text" id="topic-input">
         
-            <!-- Button triggers new topic to be added -->
-            <input id="add-topic" type="submit" value="Add it">
-        </form>
+    <div class="container text-center">
+        <div class = "row"> <!--row 1-->
+            <div class = "col-md-12"> <!-- row 1's column -->
+                <!-- Rendered Buttons will go Here  -->
+                <br><br>
+                <div id="buttons-view">
+                    <button class = 'topicButtons' dataTopic="aurora borealis">Aurora Borealis</button>
+                    <button class = 'topicButtons' dataTopic="daffy duck">Daffy Duck</button>
+                    <button class = 'topicButtons' dataTopic="seinfeld">Seinfeld</button>
+                    <button class = 'topicButtons' dataTopic="lost">Lost</button>
+                    <button class = 'topicButtons' dataTopic="baby animals">Baby Animals</button>
+                </div>
+            </div> <!--end column -->
+        </div> <!-- end row -->
 
-        <!-- Topics images will Get Dumped Here-->
-        <div id="gifs-go-here"></div>
+        <div class =  "row"> <!-- row 2 --> 
+            <div class = "col-md-12">
+                <form id="giphy-form">
+                <label for="topic-input">Add a Topic</label>
+                <input type="text" id="topic-input">
+            
+                <!-- Button triggers new topic to be added -->
+                <input id="add-topic" type="submit" value="Add it">
+                </form>
 
+                <!-- Topics images will Get Dumped Here-->
+                <div id="gifs-go-here"></div>
+            </div> <!--end column-->
+        </div> <!--end row 2-->
 
     </div> <!--end container-->
     <script type="text/javascript" src="assets/javascript/app.js"></script>    
