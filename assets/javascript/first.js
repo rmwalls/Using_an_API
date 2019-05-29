@@ -1,7 +1,4 @@
-$(document).ready(function() {
-    
-  //var topics = ["aurora borealis", "daffy duck", "seinfeld", "lost", "baby animals"];
-   // This listener handles event to add a topicbutton when Add it button clicked
+// This listener handles event to add a topicbutton when Add it button clicked
    $("#add-topic").on("click", function(event) {
     event.preventDefault(); //prevent the button from executing
    var newTopic = $("#topic-input").val().trim().toLowerCase(); // Grab the input from the textbox
@@ -25,7 +22,7 @@ $(document).ready(function() {
 
 
   // Constructing a queryURL using the topic name
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=qt7hfQSsEX423SLcRsTU9j0P32dk7E38&limit=10";
+  queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=qt7hfQSsEX423SLcRsTU9j0P32dk7E38&limit=10";
 
   // Performing an AJAX request with the queryURL
   $.ajax({
@@ -43,19 +40,13 @@ $(document).ready(function() {
 
   // Looping through each of the 10 result items
   for (var i = 0; i < results.length; i++) {
-    // Creating and storing a div tag
-    var topicDiv = $("<div>");
-    // Creating and storing an image tag
-    var topicImage = $("<img>");
-    // Setting the src attribute of the image to a property pulled off the result item
-    topicImage.attr("src", results[i].images.fixed_height.url);
-    // Creating a paragraph tag with the result item's rating
-    var p = $("<p>").text("Rating: " + results[i].rating);
-    // Appending the paragraph and image tag to the topicDiv
-    topicDiv.append(topicImage);
+    var topicDiv = $("<div>");     // Creating and storing a div tag
+    var topicImage = $("<img>");   // Creating and storing an image tag
+    topicImage.attr("src", results[i].images.fixed_height.url); // Setting the src attribute of the image to a property pulled off the result item
+    var p = $("<p>").text("Rating: " + results[i].rating); // Creating a paragraph tag with the result item's rating
+    topicDiv.append(topicImage);  // Appending the paragraph and image tag to the topicDiv
     topicDiv.append(p);
-    // Prependng the topicDiv to the HTML page in the "#gifs-appear-here" div
-    $("#gifs-go-here").prepend(topicDiv);
+    $("#gifs-go-here").prepend(topicDiv); // Prependng the topicDiv to the HTML page in the "#gifs-appear-here" div
   } //end for loop
 
 
@@ -77,5 +68,4 @@ $(document).ready(function() {
       $(this).attr("src", $(this).attr("data-still"));
       $(this).attr("data-state", "still");
     } //if else
-});
 });
